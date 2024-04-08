@@ -27,9 +27,17 @@ def cipher(i: int, strI: str):
                 print(f"e(x) = x+{distunce} mod26")
                 print("---------------------------------")
                 print(f"And copying the decoding is:")
-                print(f"d(y) = d-{distunce} = d+{26 - distunce}mod26")
-                print("=================================")
-                return True
+                print(f"d(y) = d-{distunce} = d+{26 - distunce} mod26")
+                print("=================================", end="\n\n")
+                ans = input("Do you want to continue with the other message? (y/n): ")
+                while ans not in ['y', 'n']:
+                    print(
+                        "---------------------------------\n*** Invalid answer, please try again ***\n---------------------------------")
+                    ans = input("Please enter a valid answer (y/n): ")
+                if ans == 'n':
+                    return True
+                else:
+                    continue
     return False
 
 
@@ -42,3 +50,7 @@ if __name__ == "__main__":
     for i in range(len(text_encripted)):
         if cipher(i, text_encripted[i]):
             break
+
+    print("\n=================================")
+    print("           Goodbye!")
+    print("=================================")
